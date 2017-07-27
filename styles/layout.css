@@ -41,7 +41,7 @@ div.wrapper{display:block; width:960px; margin:0 auto; padding:0; text-align:lef
 
 .row1, .row1 a{color:#979797; background-color:#FFFFFF;}
 .row2{color:#979797; background-color:#FFFFFF;}
-.row2 a{color:red; background-color:#FFFFFF;}
+.row2 a{color:#FF9900; background-color:#FFFFFF;}
 .row3{border-top:1px solid #DEDEDE;}
 .row3, .row3 a{color:#979797; background-color:#FFFFFF;}
 
@@ -51,7 +51,7 @@ div.wrapper{display:block; width:960px; margin:0 auto; padding:0; text-align:lef
 
 nav ul{margin:0; padding:0; list-style:none;}
 
-h1, h2, h3, h4, h5, h6{margin:0; padding:0; font-size:18px; font-weight:bold; font-style:normal; line-height:normal; text-transform:uppercase;}
+h1, h2, h3, h4, h5, h6{margin:0; padding:0; font-size:16px; font-weight:bold; font-style:normal; line-height:normal; text-transform:uppercase;}
 
 address{font-style:normal;}
 
@@ -285,6 +285,7 @@ label.light {
   border-radius: 100%;
 }
 
+
 @media screen and (min-width: 480px) {
 
   form {
@@ -301,8 +302,4 @@ label.light {
 	.one_third{
 		width:100%;
 	}
-}
-
-#black {
-  background-color: black;
 }
