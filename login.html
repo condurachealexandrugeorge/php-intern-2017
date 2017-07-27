@@ -4,27 +4,80 @@
 <title>Roweb</title>
 <meta charset="iso-8859-1">
 <link rel="stylesheet" href="styles/layout.css" type="text/css">
+<link rel="stylesheet" href="styles/curs2.css" type="text/css">
 <link rel="stylesheet" href="styles/jquery.bxslider.css" type="text/css">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="scripts/jquery.bxslider.js"></script>
+
+<script>
+	$(function()
+	{
+		$("#loginButton").click(function() 
+		{
+			var email = $("#login_email").val();
+			var pass = $("#login_password").val();
+			if(!isValidEmailAddress(email))
+			{
+	
+				alert("Adresa de mail este gresita!");
+				return;
+
+			}
+
+			
+			if(!isValidPassword(pass))
+			{
+				alert("Parola trebuie sa contina cel putin 8 caractere, o litera mare si o cifra!");
+				return;
+			}
+
+			alert("Conectare reusita");
+
+		})
+
+	});
+
+	
+
+	function isValidEmailAddress(emailAddress) 
+	{
+		var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+		return pattern.test(emailAddress);
+
+	};
+
+	
+
+	function isValidPassword(pass)
+	{
+		var pattern = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\s]{8,}$/);
+		return pattern.test(pass);
+
+	};
+
+</script>
+
+
+
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
 </head>
 <body>
 <div class="wrapper row1">
-    <header id="header" class="clear">
+  <header id="header" class="clear">
     <div id="hgroup">
       <h1><a href="#">Roweb</a></h1>
-      <h2>Condurache Alexandru</h2>
+      <h2>Internship Program</h2>
     </div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="add-product.html">Add product</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products.html">Products</a></li>
+        <li><a href="/add-product.html">Add product</a></li>
+        <li><a href="/login.html">Login</a></li>
       </ul>
     </nav>
   </header>
@@ -33,25 +86,20 @@
 <div class="wrapper row2">
   <div id="container" class="clear">
     <!-- content body -->
-    
-    
-	<div class="container" id="black">
-
-	<form action="index.html" method="post">
-      
-        <h1>Login</h1>
-        
-        <fieldset>
-          <legend>MAIL</legend>
-          <input type="text" id="name" name="mail">
-		  
-		  <legend>PASSWORD</legend>
-		  <input type="password" id="password" name="password">
-
-        <button type="submit">LOGIN</button>
-      </form>
+   
+	<div class="container">
+		<form action="" method="post" id="login_form">
+			<h1 class="login_heading">Login</h1>
+			<fieldset>
+				<legend id="subtitle">Please fill in your details</legend>
+				<label for="login_email">Username / Email:</label>
+				<input type="text" id="login_email" name="email">
+				<label for="login_password">Password:</label>
+				<input type="password" id="login_password" name="pass">
+			</fieldset>
+			<button type="submit" id="loginButton">Login</button>
+		</form>
 	</div><!-- container -->
-
 </div>
 <!-- footer -->
 <div class="wrapper row3">
@@ -60,34 +108,5 @@
     <p class="fl_right">Template by <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
   </footer>
 </div>
-<script>
-$(function(){
-	$('.bxslider').bxSlider({
-		mode: 'horizontal',
-		moveSlides: 1,
-		slideMargin: 40,
-		infiniteLoop: true,
-		slideWidth: 660,
-		minSlides: 3,
-		maxSlides: 3,
-		speed: 800,
-	});
-	
-	$('ul.tabs li').click(function(){
-		var tab_id = $(this).attr('data-tab');
-
-		$('ul.tabs li').removeClass('current');
-		$('.tab-content').removeClass('current');
-
-		$(this).addClass('current');
-		$("#"+tab_id).addClass('current');
-	});
-	
-	$(document).on('click', '.custom-menu .target', function (e) {
-		$('.custom-menu').find('.active').removeClass('active');
-		$(this).addClass('active');
-	});
-});
-</script>
 </body>
 </html>
